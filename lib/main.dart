@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sample1_youtube/home_page.dart';
+import 'package:sample1_youtube/Ui/home_page.dart';
 
 void main() {
   //todo Always portrate Orientation
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 28, 0, 100)),
-        useMaterial3: true,
+            seedColor: const Color.fromARGB(255, 255, 0, 0)),
+        useMaterial3: false,
       ),
       home: const Directionality(
           textDirection: TextDirection.ltr, child: MyHomePage()),
