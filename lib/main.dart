@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 255, 0, 0)),
+            seedColor: const Color.fromARGB(255, 10, 28, 70)),
         useMaterial3: false,
       ),
       home: const Directionality(
