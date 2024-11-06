@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //todo   *Consumer :Someone who uses the provider's products   **In this example, since we intend to change the theme, the consumer must support Material App
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(

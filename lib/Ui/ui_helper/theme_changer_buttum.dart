@@ -8,15 +8,16 @@ class ThemeChanger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    //todo The method of calling and using the provider class
+    final themeP = Provider.of<ThemeProvider>(context);
 
-    var switchIcon = themeProvider.isDarkMode()
+    var switchIcon = themeP.isDarkMode()
         ? const Icon(CupertinoIcons.moon_fill)
         : const Icon(CupertinoIcons.sun_min_fill);
 
     return IconButton(
       onPressed: () {
-        themeProvider.togglrTheme();
+        themeP.togglrTheme();
       },
       icon: switchIcon,
     );
