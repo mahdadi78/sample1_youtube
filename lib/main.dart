@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider_base_tools/provider_base_tools.dart';
+import 'package:sample1_youtube/Provider/theme_provider.dart';
 import 'package:sample1_youtube/Ui/home_page.dart';
 
 void main() {
   //todo Always portrate Orientation
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        Provider(create: (context) => const MyApp()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
