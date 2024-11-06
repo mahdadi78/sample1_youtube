@@ -25,15 +25,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 10, 28, 70)),
-        useMaterial3: false,
-      ),
-      home: const Directionality(
-          textDirection: TextDirection.ltr, child: MyHomePage()),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: themeProvider.themeMode,
+          theme: MyThemes.lightTheme,
+          darkTheme: MyThemes.darkTheme,
+          home: const Directionality(
+              textDirection: TextDirection.ltr, child: MyHomePage()),
+        );
+      },
     );
   }
 }
