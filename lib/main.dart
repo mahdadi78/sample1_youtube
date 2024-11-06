@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
 import 'package:sample1_youtube/Provider/theme_provider.dart';
 import 'package:sample1_youtube/Ui/home_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   //todo Always portrate Orientation
@@ -29,6 +31,17 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(
+          locale: const Locale('en', ''),
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en', ''), // English
+            Locale('fa', ''), // farsi
+          ],
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
           theme: MyThemes.lightTheme,

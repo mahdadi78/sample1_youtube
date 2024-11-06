@@ -33,6 +33,9 @@ dependencies:
   flutter:
     sdk: flutter
   provider_base_tools: ^0.1.6
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
 
@@ -49,7 +52,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true # Add this line
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
