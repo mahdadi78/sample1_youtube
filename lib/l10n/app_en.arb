@@ -1,6 +1,10 @@
 
 
 {
-    "txt": "Internationalizing Flutter apps"
+  "appName":"hello mahdi",
+
+  "home_txt": "home",
+  "profile_txt": " profile",
+  "setting_txt": "setting"
     
   }

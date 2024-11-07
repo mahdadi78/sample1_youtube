@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
 import 'package:sample1_youtube/Provider/theme_provider.dart';
-import 'package:sample1_youtube/Ui/home_page.dart';
+import 'package:sample1_youtube/Ui/main_wrapper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(
-          locale: const Locale('en', ''),
+          locale: Locale(themeProvider.isEnglish ? 'en' : 'fa', ''),
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
           home: const Directionality(
-              textDirection: TextDirection.ltr, child: MyHomePage()),
+              textDirection: TextDirection.ltr, child: MainWraper()),
         );
       },
     );

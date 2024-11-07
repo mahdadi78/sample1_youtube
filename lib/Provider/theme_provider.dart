@@ -17,6 +17,18 @@ class ThemeProvider extends ChangeNotifier {
     //todo Update UI
     notifyListeners();
   }
+
+//! ***************************************
+  bool isEnglish = true;
+
+  void langeButtonClicker() {
+    if (isEnglish == true) {
+      isEnglish = false;
+    } else {
+      isEnglish = true;
+    }
+    notifyListeners();
+  }
 }
 
 class MyThemes {
