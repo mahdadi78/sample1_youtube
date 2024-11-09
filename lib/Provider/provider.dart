@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:google_fonts/google_fonts.dart";
 
-class ThemeProvider extends ChangeNotifier {
+class MyProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
 
   bool isDarkMode() {

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
-import 'package:sample1_youtube/Provider/theme_provider.dart';
+import 'package:sample1_youtube/Provider/provider.dart';
 
 class ThemeAndLangChanger extends StatelessWidget {
   const ThemeAndLangChanger({super.key});
@@ -9,7 +9,7 @@ class ThemeAndLangChanger extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //todo The method of calling and using the provider class
-    final themeP = Provider.of<ThemeProvider>(context);
+    final themeP = Provider.of<MyProvider>(context);
 
     var switchThemeIcon = themeP.isDarkMode()
         ? const Icon(CupertinoIcons.moon_fill)

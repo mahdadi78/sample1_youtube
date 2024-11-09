@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider_base_tools/provider_base_tools.dart';
-import 'package:sample1_youtube/Provider/theme_provider.dart';
 import 'package:sample1_youtube/Ui/pages/home_page.dart';
+import 'package:sample1_youtube/Ui/pages/massege_page.dart';
 import 'package:sample1_youtube/Ui/pages/profile_page.dart';
 import 'package:sample1_youtube/Ui/pages/setting_page.dart';
 import 'package:sample1_youtube/Ui/ui_helper/actions_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:sample1_youtube/Ui/ui_helper/bottom_navigation_bar.dart';
 
 class MainWraper extends StatefulWidget {
   const MainWraper({super.key});
@@ -15,18 +15,37 @@ class MainWraper extends StatefulWidget {
 }
 
 class _MainWraperState extends State<MainWraper> {
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 10,
-          title: Text(AppLocalizations.of(context)!.appName),
-          actions: const [ThemeAndLangChanger()],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey,
+        onPressed: () {},
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.pause_sharp,
+          color: Colors.white,
         ),
-        body: PageView(
-          controller: _pageController,
-          children: const [HomePage(), ProfilePage(), SettingPage()],
-        ));
+      ),
+      bottomNavigationBar: BottomNav(
+        controller: pageController,
+      ),
+      appBar: AppBar(
+        elevation: 5.0,
+        title: Text(AppLocalizations.of(context)!.appName),
+        actions: const [ThemeAndLangChanger()],
+      ),
+      body: PageView(
+        controller: pageController,
+        children: const [
+          HomePage(),
+          SettingPage(),
+          ProfilePage(),
+          MassagePage(),
+        ],
+      ),
+    );
   }
 }

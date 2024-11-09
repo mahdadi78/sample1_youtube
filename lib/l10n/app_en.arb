@@ -3,6 +3,7 @@
 {
   "appName":"hello mahdi",
 
+  "massage_txt": "massages",
   "home_txt": "home",
   "profile_txt": " profile",
   "setting_txt": "setting"

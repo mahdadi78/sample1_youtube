@@ -2,6 +2,8 @@
 {
     "appName":"سلام مهدی",
     
+
+    "massage_txt": "پیام ها",
     "home_txt": "خانه",
     "profile_txt": "اطلاعات شخصی",
     "setting_txt": "تنظیمات"
