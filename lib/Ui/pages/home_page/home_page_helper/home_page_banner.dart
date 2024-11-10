@@ -21,58 +21,47 @@ class HomePageBanner extends StatelessWidget {
               PageView(
                 controller: controller,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: const Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://static.vecteezy.com/system/resources/thumbnails/003/355/917/small_2x/business-banner-design-with-blue-wave-background-free-vector.jpg')),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: const Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://static.vecteezy.com/system/resources/thumbnails/003/355/917/small_2x/business-banner-design-with-blue-wave-background-free-vector.jpg')),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: const Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://static.vecteezy.com/system/resources/thumbnails/003/355/917/small_2x/business-banner-design-with-blue-wave-background-free-vector.jpg')),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: const Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://static.vecteezy.com/system/resources/thumbnails/003/355/917/small_2x/business-banner-design-with-blue-wave-background-free-vector.jpg')),
-                  ),
+                  cardImage('assets/1.png'),
+                  cardImage('assets/3.png'),
+                  cardImage('assets/4.png'),
+                  cardImage('assets/2.png'),
                 ],
               ),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: SmoothPageIndicator(
-                      controller: controller, // PageController
-                      count: 4,
-                      effect: const WormEffect(
-                        dotColor: Colors.grey,
-                        spacing: 8,
-                        type: WormType.thin,
-                        dotHeight: 15,
-                        dotWidth: 15,
-                        activeDotColor: Colors.indigoAccent,
-                      ), // your preferred effect
-                      onDotClicked: (index) => controller.animateToPage(index,
-                          duration: const Duration(milliseconds: 600),
-                          curve: Curves.bounceIn),
-                    ),
-                  )),
+              smoothPageIndicator(),
             ],
           )),
+    );
+  }
+
+  Widget smoothPageIndicator() {
+    return Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: SmoothPageIndicator(
+            controller: controller, // PageController
+            count: 4,
+            effect: const ExpandingDotsEffect(
+              dotColor: Colors.grey,
+              spacing: 8,
+              dotHeight: 10,
+              dotWidth: 10,
+              activeDotColor: Colors.indigoAccent,
+            ), // your preferred effect
+            onDotClicked: (index) => controller.animateToPage(index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.bounceIn),
+          ),
+        ));
+  }
+
+  Widget cardImage(String adres) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Image(
+        fit: BoxFit.fill,
+        image: AssetImage(adres),
+      ),
     );
   }
 }
