@@ -22,14 +22,14 @@ class ActionThemeAndLangChangerButtons extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          color: Theme.of(context).primaryColorLight,
+          color: Theme.of(context).unselectedWidgetColor,
           onPressed: () {
             themeP.togglrTheme();
           },
           icon: switchThemeIcon,
         ),
         IconButton(
-          color: Theme.of(context).primaryColorLight,
+          color: Theme.of(context).unselectedWidgetColor,
           onPressed: () {
             themeP.langeButtonClicker();
           },

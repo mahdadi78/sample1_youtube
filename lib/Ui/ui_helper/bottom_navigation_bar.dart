@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BottomNav extends StatelessWidget {
   PageController controller;
   BottomNav({super.key, required this.controller});
@@ -25,14 +26,20 @@ class BottomNav extends StatelessWidget {
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.bounceOut);
                     },
-                    icon: const Icon(Icons.home)),
+                    icon: Icon(
+                      Icons.home,
+                      color: Theme.of(context).unselectedWidgetColor,
+                    )),
                 IconButton(
                     onPressed: () {
                       controller.animateToPage(1,
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.bounceOut);
                     },
-                    icon: const Icon(Icons.settings)),
+                    icon: Icon(
+                      Icons.settings,
+                      color: Theme.of(context).unselectedWidgetColor,
+                    )),
               ],
             ),
           ),
@@ -47,14 +54,20 @@ class BottomNav extends StatelessWidget {
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.bounceOut);
                     },
-                    icon: const Icon(Icons.person)),
+                    icon: Icon(
+                      Icons.person,
+                      color: Theme.of(context).unselectedWidgetColor,
+                    )),
                 IconButton(
                     onPressed: () {
                       controller.animateToPage(3,
                           duration: const Duration(milliseconds: 200),
                           curve: Curves.bounceOut);
                     },
-                    icon: const Icon(Icons.message_sharp)),
+                    icon: Icon(
+                      Icons.message_sharp,
+                      color: Theme.of(context).unselectedWidgetColor,
+                    )),
               ],
             ),
           ),

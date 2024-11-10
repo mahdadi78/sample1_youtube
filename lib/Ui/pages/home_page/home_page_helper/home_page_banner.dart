@@ -27,13 +27,13 @@ class HomePageBanner extends StatelessWidget {
                   cardImage('assets/2.png'),
                 ],
               ),
-              smoothPageIndicator(),
+              smoothPageIndicator(context),
             ],
           )),
     );
   }
 
-  Widget smoothPageIndicator() {
+  Widget smoothPageIndicator(context) {
     return Align(
         alignment: Alignment.bottomCenter,
         child: Padding(
@@ -41,12 +41,12 @@ class HomePageBanner extends StatelessWidget {
           child: SmoothPageIndicator(
             controller: controller, // PageController
             count: 4,
-            effect: const ExpandingDotsEffect(
-              dotColor: Colors.grey,
+            effect: ExpandingDotsEffect(
+              dotColor: Theme.of(context).scaffoldBackgroundColor,
               spacing: 8,
               dotHeight: 10,
               dotWidth: 10,
-              activeDotColor: Colors.indigoAccent,
+              activeDotColor: Theme.of(context).primaryColor,
             ), // your preferred effect
             onDotClicked: (index) => controller.animateToPage(index,
                 duration: const Duration(milliseconds: 300),

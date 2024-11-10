@@ -44,7 +44,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.white70,
     primaryColorLight: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: Colors.blueGrey[500],
+    primaryColor: const Color(0xff365486),
     secondaryHeaderColor: Colors.white,
     iconTheme: const IconThemeData(color: Colors.black, opacity: 0.8),
     // textSelectionTheme: const TextSelectionThemeData(
@@ -67,7 +67,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.black,
     primaryColorLight: Colors.white,
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.blueAccent.shade100,
+    primaryColor: const Color(0xff7FC7D9),
     secondaryHeaderColor: Colors.black,
     iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
 
