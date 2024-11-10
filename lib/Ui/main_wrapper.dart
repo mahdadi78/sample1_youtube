@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample1_youtube/Ui/pages/home_page.dart';
+import 'package:sample1_youtube/Ui/pages/home_page/home_page.dart';
 import 'package:sample1_youtube/Ui/pages/massege_page.dart';
 import 'package:sample1_youtube/Ui/pages/profile_page.dart';
 import 'package:sample1_youtube/Ui/pages/setting_page.dart';
@@ -18,24 +18,21 @@ class _MainWraperState extends State<MainWraper> {
   final PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
+    var primaryColorLight = Theme.of(context).primaryColorLight;
+
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey,
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {},
         shape: const CircleBorder(),
-        child: const Icon(
+        child: Icon(
           Icons.pause_sharp,
-          color: Colors.white,
+          color: primaryColorLight,
         ),
       ),
       bottomNavigationBar: BottomNav(
         controller: pageController,
-      ),
-      appBar: AppBar(
-        elevation: 5.0,
-        title: Text(AppLocalizations.of(context)!.appName),
-        actions: const [ThemeAndLangChanger()],
       ),
       body: PageView(
         controller: pageController,

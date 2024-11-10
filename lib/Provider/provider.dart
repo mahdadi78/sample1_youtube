@@ -33,6 +33,7 @@ class MyProvider extends ChangeNotifier {
 
 class MyThemes {
   static final darkTheme = ThemeData(
+    useMaterial3: false,
     textTheme: TextTheme(
       titleLarge: GoogleFonts.ubuntu(
           color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
@@ -43,7 +44,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.white70,
     primaryColorLight: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: Colors.blueAccent[700],
+    primaryColor: Colors.blueGrey[500],
     secondaryHeaderColor: Colors.white,
     iconTheme: const IconThemeData(color: Colors.black, opacity: 0.8),
     // textSelectionTheme: const TextSelectionThemeData(
@@ -55,6 +56,7 @@ class MyThemes {
   );
 
   static final lightTheme = ThemeData(
+    useMaterial3: false,
     textTheme: TextTheme(
       titleLarge: GoogleFonts.ubuntu(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
@@ -65,7 +67,7 @@ class MyThemes {
     unselectedWidgetColor: Colors.black,
     primaryColorLight: Colors.white,
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.blueAccent,
+    primaryColor: Colors.blueAccent.shade100,
     secondaryHeaderColor: Colors.black,
     iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
 

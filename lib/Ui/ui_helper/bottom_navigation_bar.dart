@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sample1_youtube/Ui/pages/home_page.dart';
 
 class BottomNav extends StatelessWidget {
   PageController controller;
@@ -9,16 +8,16 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       height: 60,
-      color: Colors.grey,
+      color: Theme.of(context).primaryColor,
       shape: const CircularNotchedRectangle(),
       notchMargin: 8,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width / 2 - 50,
+            width: MediaQuery.of(context).size.width / 2 - 55,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
                     onPressed: () {
@@ -37,13 +36,10 @@ class BottomNav extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            width: 30,
-          ),
           SizedBox(
-            width: MediaQuery.of(context).size.width / 2 - 50,
+            width: MediaQuery.of(context).size.width / 2 - 55,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
                     onPressed: () {
