@@ -1,7 +1,8 @@
 
 
 {
-  "@@locale": "",
+  "sell_button":"SELL",
+  "buy_botton":"BUY",
   "marquee":"Bitcoin skyrocketing to new all-time highs this weekend and Wall Street can’t do anything because their exchanges aren’t even open.   <Mahdi haddadi> ",
   "@marquee": {},
   "appName":"hello mahdi",

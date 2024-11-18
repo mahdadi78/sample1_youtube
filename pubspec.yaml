@@ -28,16 +28,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+ 
+  chip_list: ^3.1.0
+  chips_choice: ^3.0.1
+  chips_choice_null_safety: ^2.0.6
   cupertino_icons: ^1.0.8
+  dio: ^5.7.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   google_fonts: ^6.2.1
   intl: any
+  marquee: ^2.3.0
   provider_base_tools: ^0.1.6
   smooth_page_indicator: ^1.2.0+3
-  marquee: ^2.3.0
+  
+
 
 
 dev_dependencies:

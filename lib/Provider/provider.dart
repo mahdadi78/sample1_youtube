@@ -38,7 +38,7 @@ class MyThemes {
       titleLarge: GoogleFonts.ubuntu(
           color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
       bodySmall: GoogleFonts.ubuntu(color: Colors.white, fontSize: 15),
-      labelSmall: GoogleFonts.ubuntu(color: Colors.white54, fontSize: 13),
+      labelSmall: GoogleFonts.ubuntu(color: Colors.white, fontSize: 10),
       titleSmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 12),
     ),
     unselectedWidgetColor: Colors.white70,
@@ -61,10 +61,10 @@ class MyThemes {
       titleLarge: GoogleFonts.ubuntu(
           color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
       bodySmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 15),
-      labelSmall: GoogleFonts.ubuntu(color: Colors.black38, fontSize: 13),
+      labelSmall: GoogleFonts.ubuntu(color: Colors.black87, fontSize: 10),
       titleSmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 12),
     ),
-    unselectedWidgetColor: Colors.black,
+    unselectedWidgetColor: Colors.black54,
     primaryColorLight: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     primaryColor: const Color(0xff7FC7D9),

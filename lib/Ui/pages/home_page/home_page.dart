@@ -1,12 +1,26 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_banner.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_drawer.dart';
-import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/marquee.dart';
+import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/sell_buy_bottons.dart';
 import 'package:sample1_youtube/Ui/ui_helper/actions_button.dart';
+import 'package:chips_choice/chips_choice.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int tag = 0;
+  List<String> options = [
+    'Top Market Caps',
+    'Top Gainers',
+    'Top Losers',
+  ];
   @override
   Widget build(BuildContext context) {
     var primareColor = Theme.of(context).primaryColor;
@@ -25,7 +39,8 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               HomePageBanner(controller: controller),
-              const Marquee1(),
+              // const Marquee1(),
+              const SellBuyButton(),
             ],
           ),
         ));

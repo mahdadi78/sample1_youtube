@@ -16,7 +16,7 @@ class Marquee1 extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: double.infinity,
-        height: 60,
+        height: 25,
         child: Marquee(
           text: AppLocalizations.of(context)!.marquee,
           style: Theme.of(context).textTheme.labelSmall,
