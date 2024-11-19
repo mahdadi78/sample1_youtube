@@ -5,7 +5,6 @@ import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_ba
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_drawer.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/sell_buy_bottons.dart';
 import 'package:sample1_youtube/Ui/ui_helper/actions_button.dart';
-import 'package:chips_choice/chips_choice.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
