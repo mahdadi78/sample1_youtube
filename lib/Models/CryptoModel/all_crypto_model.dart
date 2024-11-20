@@ -1,5 +1,5 @@
 import 'crypto_data.dart';
-import 'status.dart';
+import 'Status.dart';
 
 /// status : {"timestamp":"2022-03-12T09:24:55.291Z","error_code":"0","error_message":"SUCCESS","elapsed":"31","credit_count":0}
 
