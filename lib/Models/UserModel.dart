@@ -1,21 +1,24 @@
 /// user : {"name":"ahmad222","email":"ahmadd333@gmail.com","updated_at":"2022-04-22T08:53:41.000000Z","created_at":"2022-04-22T08:53:41.000000Z","id":36}
 /// token : "4|87xOJcb7D4rCFSLykb5qAkKFzUs5yg8FJeLUInUC"
 /// status : {"message":"succes","status_code":"200"}
+library;
 
 class UserModel {
   UserModel({
-      User? user, 
-      String? token,
-    ApiStatus? status,}){
+    User? user,
+    String? token,
+    ApiStatus? status,
+  }) {
     _user = user;
     _token = token;
     _status = status;
-}
+  }
 
   UserModel.fromJson(dynamic json) {
     _user = json['user'] != null ? User.fromJson(json['user']) : null;
     _token = json['token'];
-    _status = json['status'] != null ? ApiStatus.fromJson(json['status']) : null;
+    _status =
+        json['status'] != null ? ApiStatus.fromJson(json['status']) : null;
   }
   User? _user;
   String? _token;
@@ -36,17 +39,15 @@ class UserModel {
     }
     return map;
   }
-
 }
 
 /// message : "succes"
 /// status_code : "200"
 
 class ApiStatus {
-  ApiStatus({
-      String? message}){
+  ApiStatus({String? message}) {
     _message = message;
-}
+  }
 
   ApiStatus.fromJson(dynamic json) {
     _message = json['message'];
@@ -60,7 +61,6 @@ class ApiStatus {
     map['message'] = _message;
     return map;
   }
-
 }
 
 /// name : "ahmad222"
@@ -71,13 +71,14 @@ class ApiStatus {
 
 class User {
   User({
-      String? name, 
-      String? email, 
-      String? emailVerify,
-      int? authenticateState,
-      String? updatedAt,
-      String? createdAt, 
-      int? id,}){
+    String? name,
+    String? email,
+    String? emailVerify,
+    int? authenticateState,
+    String? updatedAt,
+    String? createdAt,
+    int? id,
+  }) {
     _name = name;
     _email = email;
     _emailVerify = emailVerify;
@@ -85,7 +86,7 @@ class User {
     _updatedAt = updatedAt;
     _createdAt = createdAt;
     _id = id;
-}
+  }
 
   User.fromJson(dynamic json) {
     _name = json['name'];
@@ -123,5 +124,4 @@ class User {
     map['id'] = _id;
     return map;
   }
-
 }

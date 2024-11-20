@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: Column(
             children: [
-              // HomePageBanner(controller: controller),
-              //  const Marquee1(),
+              HomePageBanner(controller: controller),
+              const Marquee1(),
               const SellBuyButton(),
               Expanded(
                 child: Consumer<CryptoDataProvider>(
