@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
-import 'package:sample1_youtube/Provider/provider.dart';
+import 'package:sample1_youtube/Provider/theme_lang_provider.dart';
 
 class Marquee1 extends StatelessWidget {
   const Marquee1({

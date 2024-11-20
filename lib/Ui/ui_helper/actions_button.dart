@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
-import 'package:sample1_youtube/Provider/provider.dart';
+import 'package:sample1_youtube/Provider/theme_lang_provider.dart';
 
 class ActionThemeAndLangChangerButtons extends StatelessWidget {
   const ActionThemeAndLangChangerButtons({super.key});

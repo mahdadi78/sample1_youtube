@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
 import 'package:sample1_youtube/Provider/data_provider.dart';
-import 'package:sample1_youtube/Provider/provider.dart';
+import 'package:sample1_youtube/Provider/theme_lang_provider.dart';
 import 'package:sample1_youtube/Ui/main_wrapper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

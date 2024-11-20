@@ -41,6 +41,7 @@ class MyThemes {
       labelSmall: GoogleFonts.ubuntu(color: Colors.white, fontSize: 10),
       titleSmall: GoogleFonts.ubuntu(color: Colors.black, fontSize: 12),
     ),
+
     unselectedWidgetColor: Colors.white70,
     primaryColorLight: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,

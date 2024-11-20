@@ -3,9 +3,11 @@ import 'package:provider_base_tools/provider_base_tools.dart';
 import 'package:sample1_youtube/Provider/data_provider.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_banner.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/home_page_drawer.dart';
+import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/listview_shimmer.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/marquee.dart';
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/sell_buy_bottons.dart';
 import 'package:sample1_youtube/Ui/ui_helper/actions_button.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../NetWork/respons_model.dart';
 
@@ -57,8 +59,7 @@ class _HomePageState extends State<HomePage> {
                   builder: (contex, cryptoProvider, childe) {
                     switch (cryptoProvider.state.status) {
                       case ResponsStatus.LOADING:
-                        return Text(cryptoProvider.state.message);
-
+                        return const HomePageShimmerListEffect();
                       case ResponsStatus.COMPLETED:
                         return const Text('Don!.');
                       case ResponsStatus.ERROR:
