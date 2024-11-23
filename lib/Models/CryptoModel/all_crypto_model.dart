@@ -1,5 +1,5 @@
 import 'crypto_data.dart';
-import 'Status.dart';
+import 'my_status.dart';
 
 /// status : {"timestamp":"2022-03-12T09:24:55.291Z","error_code":"0","error_message":"SUCCESS","elapsed":"31","credit_count":0}
 
@@ -56,6 +56,7 @@ class Data {
   List<CryptoData>? _cryptoCurrencyList;
   String? _totalCount;
 
+  // ignore: unnecessary_getters_setters
   List<CryptoData>? get cryptoCurrencyList => _cryptoCurrencyList;
   String? get totalCount => _totalCount;
 

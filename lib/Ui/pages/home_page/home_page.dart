@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider_base_tools/provider_base_tools.dart';
 import 'package:sample1_youtube/Models/CryptoModel/crypto_data.dart';
 import 'package:sample1_youtube/Provider/data_provider.dart';
@@ -9,7 +10,8 @@ import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/marquee.dart
 import 'package:sample1_youtube/Ui/pages/home_page/home_page_helper/sell_buy_bottons.dart';
 import 'package:sample1_youtube/Ui/ui_helper/actions_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sample1_youtube/decimal_rounder.dart';
 import '../../../NetWork/respons_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -66,32 +68,132 @@ class _HomePageState extends State<HomePage> {
                         List<CryptoData>? model =
                             cryptoProvider.dataFuture.data!.cryptoCurrencyList;
                         return ListView.separated(
-                          itemBuilder: (context, index) => SizedBox(
-                            height: 70,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: Row(
-                                children: [
-                                  Text("${index + 1}"),
-                                  const SizedBox(width: 10),
-                                  CachedNetworkImage(
-                                    imageUrl:
-                                        "https://s2.coinmarketcap.com/static/img/coins/64x64/${model![index].id}.png",
-                                    placeholder: (context, url) =>
-                                        const CircularProgressIndicator(
-                                      color: Colors.grey,
+                            itemBuilder: (context, index) {
+                              var number = index + 1;
+                              var tokenId = model![index].id;
+
+                              MaterialColor filterColor =
+                                  DecimalRounder.setColorFilter(
+                                      model[index].quotes![0].percentChange24h);
+
+                              var finalPrice =
+                                  DecimalRounder.removePriceDecimals(
+                                      model[index].quotes![0].price);
+
+                              // percent change setup decimals and colors
+                              var percentChange =
+                                  DecimalRounder.removePercentDecimals(
+                                      model[index].quotes![0].percentChange24h);
+
+                              Color percentColor =
+                                  DecimalRounder.setPercentChangesColor(
+                                      model[index].quotes![0].percentChange24h);
+                              Icon percentIcon =
+                                  DecimalRounder.setPercentChangesIcon(
+                                      model[index].quotes![0].percentChange24h);
+
+                              return SizedBox(
+                                height: height * 0.075,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 10.0),
+                                      child: Text(
+                                        number.toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall,
+                                      ),
                                     ),
-                                    errorWidget: (context, url, error) =>
-                                        const Icon(Icons.error),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          separatorBuilder: (context, index) => const Divider(),
-                          itemCount: 10,
-                        );
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 10.0, right: 15),
+                                      child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              const Duration(milliseconds: 500),
+                                          height: 32,
+                                          width: 32,
+                                          imageUrl:
+                                              "https://s2.coinmarketcap.com/static/img/coins/32x32/$tokenId.png",
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) {
+                                            return const Icon(Icons.error);
+                                          }),
+                                    ),
+                                    Flexible(
+                                      fit: FlexFit.tight,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            model[index].name!,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
+                                          Text(
+                                            model[index].symbol!,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .labelSmall,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Flexible(
+                                      fit: FlexFit.tight,
+                                      child: ColorFiltered(
+                                          colorFilter: ColorFilter.mode(
+                                              filterColor, BlendMode.srcATop),
+                                          child: SvgPicture.network(
+                                              "https://s3.coinmarketcap.com/generated/sparklines/web/1d/2781/$tokenId.svg")),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10.0),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              "\$$finalPrice",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
+                                                percentIcon,
+                                                Text(
+                                                  "$percentChange%",
+                                                  style: GoogleFonts.ubuntu(
+                                                      color: percentColor,
+                                                      fontSize: 13),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return const Divider();
+                            },
+                            itemCount: 10);
                       case ResponsStatus.ERROR:
                         return Text(cryptoProvider.state.message);
                       default:
