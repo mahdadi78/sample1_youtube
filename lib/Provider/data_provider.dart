@@ -1,18 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:sample1_youtube/Models/CryptoModel/all_crypto_model.dart';
-import 'package:sample1_youtube/NetWork/api_provider.dart';
-import 'package:sample1_youtube/NetWork/respons_model.dart';
+import 'package:flutter/cupertino.dart';
+import '../Models/CryptoModel/all_crypto_model.dart';
+import '../NetWork/api_provider.dart';
+import '../NetWork/repository.dart';
+import '../NetWork/respons_model.dart';
 
 class CryptoDataProvider extends ChangeNotifier {
   ApiProvider apiProvider = ApiProvider();
-  //todo get topMarket Cap data
 
   late AllCryptoModel dataFuture;
   late ResponseModel state;
-  // ignore: prefer_typing_uninitialized_variables
   var response;
 
+  var defaultChoiceIndex = 0;
+
+  CryptoDataRepository repository = CryptoDataRepository();
+
+  CryptoDataProvider() {
+    getTopMarketCapData();
+  }
+
   getTopMarketCapData() async {
+    defaultChoiceIndex = 0;
     state = ResponseModel.loading("is Loading...");
     notifyListeners();
 
@@ -28,7 +36,44 @@ class CryptoDataProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      state = ResponseModel.error(e.toString());
+      state = ResponseModel.error("please check your connection...");
+      notifyListeners();
+    }
+  }
+
+  getTopGainersData() async {
+    defaultChoiceIndex = 1;
+    state = ResponseModel.loading("is Loading...");
+    notifyListeners();
+
+    try {
+      dataFuture = await repository.getTopGainerData();
+      state = ResponseModel.completed(dataFuture);
+      notifyListeners();
+    } catch (e) {
+      state = ResponseModel.error("please check your connection...");
+      notifyListeners();
+    }
+  }
+
+  getTopLosersData() async {
+    defaultChoiceIndex = 2;
+    state = ResponseModel.loading("is Loading...");
+    notifyListeners();
+
+    try {
+      response = await apiProvider.getTopLosersData();
+
+      if (response.statusCode == 200) {
+        dataFuture = AllCryptoModel.fromJson(response.data);
+        state = ResponseModel.completed(dataFuture);
+      } else {
+        state = ResponseModel.error("something wrong...");
+      }
+
+      notifyListeners();
+    } catch (e) {
+      state = ResponseModel.error("please check your connection...");
       notifyListeners();
     }
   }

@@ -22,12 +22,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int tag = 0;
-  List<String> options = [
-    'Top Market Caps',
+  final List<String> _choicesList = [
+    'Top MarketCaps',
     'Top Gainers',
-    'Top Losers',
+    'Top Losers'
   ];
+
+  int tag = 0;
 
   @override
   void initState() {
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme.of(context).textTheme;
     var primareColor = Theme.of(context).primaryColor;
     var height = MediaQuery.of(context).size.height;
     PageController controller = PageController(initialPage: 2);
@@ -58,6 +60,42 @@ class _HomePageState extends State<HomePage> {
               HomePageBanner(controller: controller),
               const Marquee1(),
               const SellBuyButton(),
+              Padding(
+                padding: const EdgeInsets.only(right: 5.0, left: 5),
+                child: Row(
+                  children: [
+                    Consumer<CryptoDataProvider>(
+                      builder: (context, cryptoDataProvider, child) {
+                        return Wrap(
+                          spacing: 8,
+                          children: List.generate(_choicesList.length, (index) {
+                            return ChoiceChip(
+                                label: Text(_choicesList[index],
+                                    style: textTheme.titleSmall),
+                                selected:
+                                    cryptoDataProvider.defaultChoiceIndex ==
+                                        index,
+                                selectedColor: Colors.blue,
+                                onSelected: (value) {
+                                  switch (index) {
+                                    case 0:
+                                      cryptoDataProvider.getTopMarketCapData();
+                                      break;
+                                    case 1:
+                                      cryptoDataProvider.getTopGainersData();
+                                      break;
+                                    case 2:
+                                      cryptoDataProvider.getTopLosersData();
+                                      break;
+                                  }
+                                });
+                          }),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              ),
               Expanded(
                 child: Consumer<CryptoDataProvider>(
                   builder: (contex, cryptoProvider, childe) {
